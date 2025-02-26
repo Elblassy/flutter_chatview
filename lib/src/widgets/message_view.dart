@@ -42,7 +42,6 @@ class MessageView extends StatefulWidget {
     this.outgoingChatBubbleConfig,
     this.longPressAnimationDuration,
     this.onDoubleTap,
-    this.headers,
     this.highlightColor = Colors.grey,
     this.shouldHighlight = false,
     this.highlightScale = 1.2,
@@ -53,9 +52,6 @@ class MessageView extends StatefulWidget {
 
   /// Provides message instance of chat.
   final Message message;
-
-  /// Provides headers for the image message.
-  final Map<String,String>? headers;
 
   /// Represents current message is sent by current user.
   final bool isMessageBySender;
@@ -206,7 +202,6 @@ class _MessageViewState extends State<MessageView>
                 } else if (widget.message.messageType.isImage) {
                   return ImageMessageView(
                     message: widget.message,
-                    headers: widget.headers,
                     isMessageBySender: widget.isMessageBySender,
                     imageMessageConfig: messageConfig?.imageMessageConfig,
                     messageReactionConfig: messageConfig?.messageReactionConfig,

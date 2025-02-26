@@ -38,14 +38,10 @@ class ChatGroupedListWidget extends StatefulWidget {
     required this.onChatListTap,
     required this.onChatBubbleLongPress,
     required this.isEnableSwipeToSeeTime,
-    this.headers,
   }) : super(key: key);
 
   /// Allow user to swipe to see time while reaction pop is not open.
   final bool showPopUp;
-
-  /// Provide headers for image message.
-  final Map<String,String>? headers;
 
   /// Pass scroll controller
   final ScrollController scrollController;
@@ -321,7 +317,6 @@ class _ChatGroupedListWidgetState extends State<ChatGroupedListWidget>
                   return ChatBubbleWidget(
                     key: message.key,
                     message: message,
-                    headers: widget.headers,
                     slideAnimation: _slideAnimation,
                     onLongPress: (yCoordinate, xCoordinate) =>
                         widget.onChatBubbleLongPress(

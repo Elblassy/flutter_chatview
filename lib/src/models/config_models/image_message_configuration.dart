@@ -31,6 +31,9 @@ class ImageMessageConfiguration {
   final bool hideShareIcon;
 
   /// Provides callback when user taps on image message.
+  final Map<String,String>? headers;
+
+  /// Provides callback when user taps on image message.
   final MessageCallBack? onTap;
 
   /// Used for giving height of image message.
@@ -57,6 +60,7 @@ class ImageMessageConfiguration {
     this.padding,
     this.margin,
     this.borderRadius,
+    this.headers,
   });
 }
 

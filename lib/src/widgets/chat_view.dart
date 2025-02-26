@@ -271,7 +271,6 @@ class _ChatViewState extends State<ChatView>
                                 valueListenable: replyMessage,
                                 builder: (_, state, child) {
                                   return ChatListWidget(
-                                    headers: widget.headers,
                                     replyMessage: state,
                                     chatController: widget.chatController,
                                     loadMoreData: widget.loadMoreData,
