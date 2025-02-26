@@ -38,17 +38,12 @@ class ChatBubbleWidget extends StatefulWidget {
     required this.onLongPress,
     required this.slideAnimation,
     required this.onSwipe,
-    this.headers,
     this.onReplyTap,
     this.shouldHighlight = false,
   }) : super(key: key);
 
   /// Represent current instance of message.
   final Message message;
-
-  /// Provide headers for image message.
-  final Map<String,String>? headers;
-
 
   /// Give callback once user long press on chat bubble.
   final DoubleCallBack onLongPress;
@@ -278,7 +273,6 @@ class _ChatBubbleWidgetState extends State<ChatBubbleWidget> {
           isMessageByCurrentUser: isMessageBySender,
           onSwipe: isMessageBySender ? onLeftSwipe : onRightSwipe,
           child: MessageView(
-            headers: widget.headers,
             outgoingChatBubbleConfig:
                 chatListConfig.chatBubbleConfig?.outgoingChatBubbleConfig,
             isLongPressEnable:
