@@ -34,11 +34,15 @@ class ImageMessageView extends StatelessWidget {
     Key? key,
     required this.message,
     required this.isMessageBySender,
+    this.headers,
     this.imageMessageConfig,
     this.messageReactionConfig,
     this.highlightImage = false,
     this.highlightScale = 1.2,
   }) : super(key: key);
+
+  /// Provides headers for the image message.
+  final  Map<String, String>? headers;
 
   /// Provides message instance of chat.
   final Message message;
@@ -103,6 +107,7 @@ class ImageMessageView extends StatelessWidget {
                       if (imageUrl.isUrl) {
                         return Image.network(
                           imageUrl,
+                          headers:headers,
                           fit: BoxFit.fitHeight,
                           loadingBuilder: (context, child, loadingProgress) {
                             if (loadingProgress == null) return child;

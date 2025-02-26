@@ -63,11 +63,15 @@ class ChatView extends StatefulWidget {
     this.replyMessageBuilder,
     this.replySuggestionsConfig,
     this.scrollToBottomButtonConfig,
+    this.headers,
   })  : chatBackgroundConfig =
             chatBackgroundConfig ?? const ChatBackgroundConfiguration(),
         chatViewStateConfig =
             chatViewStateConfig ?? const ChatViewStateConfiguration(),
         super(key: key);
+
+  /// Provide headers for image message.
+  final Map<String,String>? headers;
 
   /// Provides configuration related to user profile circle avatar.
   final ProfileCircleConfiguration? profileCircleConfig;
@@ -267,6 +271,7 @@ class _ChatViewState extends State<ChatView>
                                 valueListenable: replyMessage,
                                 builder: (_, state, child) {
                                   return ChatListWidget(
+                                    headers: widget.headers,
                                     replyMessage: state,
                                     chatController: widget.chatController,
                                     loadMoreData: widget.loadMoreData,

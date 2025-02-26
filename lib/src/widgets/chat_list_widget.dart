@@ -40,10 +40,14 @@ class ChatListWidget extends StatefulWidget {
     this.loadMoreData,
     this.isLastPage,
     this.onChatListTap,
+    this.headers,
   }) : super(key: key);
 
   /// Provides controller for accessing few function for running chat.
   final ChatController chatController;
+
+  /// Provide headers for image message.
+  final Map<String,String>? headers;
 
   /// Provides widget for loading view while pagination is enabled.
   final Widget? loadingWidget;
@@ -139,6 +143,7 @@ class _ChatListWidgetState extends State<ChatListWidget>
                 children: [
                   ChatGroupedListWidget(
                     showPopUp: showPopupValue,
+                    headers: widget.headers,
                     scrollController: scrollController,
                     isEnableSwipeToSeeTime:
                         featureActiveConfig?.enableSwipeToSeeTime ?? true,
